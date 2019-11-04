@@ -39,15 +39,15 @@
           $html .= "<tr>";
           $html .= "<td id=\"s_cod\">".$result['codigo']."</td>";
           $html .= "<td id=\"s_qty\">";
-          $html .= "<input type=\"text\" class=\"form-control\" name=\"quantity\" value=\"1\">";
+          $html .= "<input type=\"number\" class=\"form-control\" name=\"id_quantity\" value=\"1\" required>";
           $html  .= "</td>";
           $html .= "<td id=\"s_name\">".$result['name']."</td>";
           
           $html  .= "<td>";
-          $html  .= "<input type=\"text\" class=\"form-control\" name=\"price\" value=\"{$result['sale_price']}\"  readonly=\"readonl\">";
+          $html  .= "<input type=\"text\" class=\"form-control\" name=\"id_price\" value=\"{$result['sale_price']}\"  readonly=\"readonl\">";
           $html  .= "</td>";
           $html  .= "<td>";
-          $html  .= "<input type=\"text\" class=\"form-control\" name=\"total\" value=\"{$result['sale_price']}\">";
+          $html  .= "<input type=\"text\" class=\"form-control\" name=\"id_total\" value=\"{$result['sale_price']}\" readonly=\"readonl\" >";
           $html  .= "</td>";
          
           

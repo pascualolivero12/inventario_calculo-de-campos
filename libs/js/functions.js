@@ -69,7 +69,7 @@ function suggetion() {
             .done(function(data) {
                 console.log(data)
   $('#product_info').append(data);
-     total();
+     subtotal();
      
  
   $("#sug_input").val("");
@@ -90,11 +90,21 @@ function suggetion() {
 
 
 
-/*------------------------------numero de factura -----------------------------------------------------*?
+/*------------------------------numero de subtotal para sumar fila -----------------------------------------------------*/
 
 
 
+  function subtotal(){
+    $('#product_info input[name*=id]').keyup(function()  {//elemento decen
+      
 
+       var howMany = parseInt($(this).parent().next().next().find('input').val()||0);//para escoger el atributo input para calcular
+       var subTotal = parseInt($(this).val()||0) * howMany;
+  
+    $(this).parent().next().next().next().html(subTotal.toFixed(2));
+              
+    });
+  }
 
 
 
@@ -105,10 +115,10 @@ function suggetion() {
   function total(){
     $('#product_info input').change(function(e)  {
       
-            var price = +$('input[name=price]').val() || 0;
-            var qty   = +$('input[name=quantity]').val() || 0;
+            var price = +$('input[name=id_price]').val() || 0;
+            var qty   = +$('input[name=id_quantity]').val() || 0;
             var total = qty * price ;
-  $('input[name=total]').val(total.toFixed(2));
+  $('input[name=id_total]').val(total.toFixed(2));
               
     });
   }
